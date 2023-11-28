@@ -5,7 +5,7 @@ console.log(
   );
   
   // Get arguments passed on command line
-  const userArgs = process.argv.slice(2);
+  // const userArgs = process.argv.slice(2);
   
   const Book = require("./models/book");
   const Author = require("./models/author");
@@ -20,7 +20,9 @@ console.log(
   const mongoose = require("mongoose");
   mongoose.set("strictQuery", false);
   
-  const mongoDB = userArgs[0];
+  require('dotenv').config()
+  const mongoDB = process.env.MONGODB_URI
+  // const mongoDB = userArgs[0];
   
   main().catch((err) => console.log(err));
   
